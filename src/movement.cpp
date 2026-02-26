@@ -3,6 +3,7 @@
 
 #include "movement.h"
 
+
 void dPadMoveSprite(bn::sprite_ptr& sprite, bn::fixed speed) {
     bn::fixed dx = 0;
     bn::fixed dy = 0;
