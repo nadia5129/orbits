@@ -5,6 +5,7 @@
 #include <bn_fixed_point.h>
 #include <bn_sprite_ptr.h>
 #include <bn_vector.h>
+#include <bn_random.h>
 
 #include "bn_sprite_items_dot.h"
 #include "movement.h"
@@ -23,16 +24,20 @@ static constexpr bn::fixed_point ORBITER_START_VELOCITY = {0, 5};
 
 int main() {
     bn::core::init();
+  
 
     Center center = Center({30, 40}, .05, 2);
     bn::vector<Orbiter, MAX_ORBITERS> orbiters = {};
+
+    bn::random rng;
     
     while(true) {
         // Add an orbiter when A is pressed if there's room
         if(bn::keypad::a_pressed()) {
             if(orbiters.size() < MAX_ORBITERS) {
-                orbiters.push_back(Orbiter(ORBITER_START_POSIITON, ORBITER_START_VELOCITY, center));
-            }
+                int planet_id = rng.get_int(0, 3); 
+        orbiters.push_back(Orbiter(ORBITER_START_POSIITON, ORBITER_START_VELOCITY, center, planet_id));
+    }
         }
 
         // Remove an orbiter when B is pressed if there's at least one

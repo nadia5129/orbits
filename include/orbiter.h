@@ -21,7 +21,7 @@ class Orbiter {
          * @param starting_velocity the initial velocity of the Orbiter, {dx, dy}
          * @param center the center to orbit around
          */
-        Orbiter(bn::fixed_point starting_location, bn::fixed_point starting_velocity, Center &center);
+        Orbiter(bn::fixed_point starting_location, bn::fixed_point starting_velocity, Center &center, int planet_id);
 
         /**
          * Take a step orbiting around the center.
