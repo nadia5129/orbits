@@ -6,6 +6,8 @@
 #include <bn_sprite_ptr.h>
 #include <bn_vector.h>
 #include <bn_random.h>
+#include <bn_regular_bg_ptr.h>
+#include "bn_regular_bg_items_space.h"
 
 #include "bn_sprite_items_dot.h"
 #include "movement.h"
@@ -24,6 +26,7 @@ static constexpr bn::fixed_point ORBITER_START_VELOCITY = {0, 5};
 
 int main() {
     bn::core::init();
+    bn::regular_bg_ptr bg = bn::regular_bg_items::space.create_bg(0, 0);
   
 
     Center center = Center({30, 40}, .05, 2);
